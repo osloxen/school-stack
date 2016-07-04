@@ -1,0 +1,63 @@
+<div class="page-header">
+    <h1>Add Staff Members <small>Note: Under Construction!</small></h1>
+</div>
+
+
+<div layout="column" ng-cloak class="md-inline-form">
+
+    <form name="addDeviceForm">
+        <div layout-xs="column">
+            <md-input-container class="md-block">
+                <label>First Name</label>
+                <input ng-model="newStaffToAdd.firstName">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Last Name</label>
+                <input ng-model="newStaffToAdd.lastName">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Official Title</label>
+                <input ng-model="newStaffToAdd.title">
+            </md-input-container>
+
+            <md-input-container class="md-block" style="margin-right: 10px;">
+                <label>School</label>
+                <md-select ng-model="newStaffToAdd.school">
+                    <md-option ng-repeat="school in schoolList"
+                               value="{{school}}">{{school}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Client Email</label>
+                <input required type="email" name="clientEmail" ng-model="newStaffToAdd.email"
+                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                <div ng-messages="projectForm.clientEmail.$error" role="alert">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                        Your email must be between 10 and 100 characters long and look like an e-mail address.
+                    </div>
+                </div>
+            </md-input-container>
+
+
+        </div>
+
+        <br>
+        <md-divider ng-if="!$last"></md-divider>
+        <br>
+
+        <md-button class="md-raised md-primary"
+            ng-click="save(newStaffToAdd)">Save New Staff</md-button>
+        <md-button class="md-raised"
+                   ng-click="cancelClicked()">Cancel</md-button>
+
+    </form>
+
+</div>
+
+
+
+
+

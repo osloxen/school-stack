@@ -1,0 +1,28 @@
+<div class="jumbotron text-center">
+	<h1>Edit and Delete People</h1>
+
+	<p>{{ tagline }}</p>
+</div>
+
+<div id="editDevice">
+
+    <h2>Edit properties of a person</h2>
+    Add code here to select a device to edit
+</div>
+
+
+
+<div id="deleteDevice">
+
+    <h2>Delete A Person</h2>
+    For your protection you must find the ID of the person and type it in manually.<br>
+    -- The Management <br>
+    <br>
+
+    <form novalidate class="simple-form">
+        ID: <input type="text" ng-model="person.firstName" /><br />
+        <input type="submit" ng-click="delete(person)" value="Delete" />
+    </form>
+
+    {{deleteMessage.message}}
+</div>

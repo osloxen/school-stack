@@ -1,0 +1,71 @@
+body { padding-top:1px; }
+
+#searchResults {
+    float: right;
+}
+
+#searchParameters {
+    float: left;
+}
+
+#deleteDevice  {
+    float: right;
+}
+
+#editDevice {
+    float: left;
+}
+
+#deviceDetails {
+    float: right;
+    font-size: 20px;
+    padding-bottom: 100px;    /* height of footer */
+}
+
+#capabilities {
+    font-size: 22px;
+    margin-left:10em;
+    font-style: italic;
+}
+
+.deviceList {
+    float: left;
+    width: 70%;
+}
+
+
+
+.md-block {
+    width:400px;
+}
+
+
+
+footer{
+    height: 100px;
+    width:100%;
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+}
+
+
+md-toast.md-success-toast-theme {
+    background-color: white;
+}
+
+
+
+
+
+/* The animation code */
+
+
+
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px;
+    height: 300px;
+    float: left;
+}

@@ -1,0 +1,48 @@
+<div class="jumbotron text-center" >
+    <h1>Find A Device</h1>
+
+    <p>{{ tagline }}</p>
+
+</div>
+
+
+<div id="searchParameters">
+
+    <h2>Sensors</h2>
+    <form class="select-capabilities">
+        <input type="checkbox" ng-model="device.temperature" />temperature sensor<br />
+        <input type="checkbox" ng-model="device.moisture" />moisture sensor<br />
+    <br>
+    <br>
+    NPM Installs <br>
+        <input type="checkbox" ng-model="device.money" />money<br />
+        <input type="checkbox" ng-model="device.timezone" />timezone<br />
+        <br>
+        <input type="submit" ng-click="search(device)" value="search" />
+    </form>
+    <br>
+    <br>
+</div>
+
+
+
+
+
+<md-card id="searchResults" ng-repeat="result in searchResults">
+    <img src="../assets/edisonLogo.png" class="md-card-image" alt="image caption"
+         style="width:60px;height:60px;">
+    <md-card-content>
+        <h2>{{result.name}}</h2>
+        <p>Sensors</p>
+        <li ng-repeat="sensor in result.sensors">{{sensor}}</li>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-click=checkout(result.name,borrower.name.valueOf())>Reserve Device</md-button>
+        <br>
+        Borrower Name: <input type="text" ng-model="borrower.name">
+        <br>
+    </md-card-actions>
+    <md-card-footer>
+        Device Available:  {{result.available}}
+    </md-card-footer>
+</md-card>

@@ -1,0 +1,115 @@
+<div class="page-header">
+	<h3>Registered Devices</h3>
+
+	<p>{{ tagline }}</p>
+
+
+
+</div>
+
+<div class="deviceList">
+<md-content>
+    <md-list>
+        <md-list-item class="deviceList" ng-repeat="person in allStaffMembers">
+            <div class="md-list-item-text">
+                <h3>{{person.firstName}} {{person.lastName}}</h3>
+                <b>School:  </b>{{person.school}} <br>
+                <b>Title:  </b>{{person.title}} <br>
+                <b>Email:  </b>{{person.email}} <br>
+                <b>Website:  </b>{{person.website}}
+            </div>
+            <md-button class="md-raised md-secondary" ng-click="seeDeviceDetails(device.lastName)">More Details</md-button>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>
+</div>
+
+
+
+
+<div id="deviceDetails" ng-show="selectedDevice != null">
+
+
+    <b>Selected Device</b><br>
+    <br>
+
+
+    <b>Name: </b><span ng-class="animateNameOfDevice">{{selectedDevice.name}}</span>
+
+
+    <br>
+    <b>Device Type: </b> {{selectedDevice.deviceType}} <br>
+    <b>Available: </b> {{selectedDevice.available}} <br>
+    <b>Loaned To: </b> {{selectedDevice.loanedTo}} <br>
+    <b>Config: </b> {{selectedDevice.config}} <br>
+
+
+    <md-content class="md-padding" layout="column">
+        <h2 class="md-title">Sensors and npm Installs</h2>
+    <md-chips>
+        <md-chip ng-repeat="sensor in selectedDevice.sensors">{{sensor}}</md-chip>
+    </md-chips>
+    <md-chips>
+        <md-chip ng-repeat="npmModule in selectedDevice.npmInstall">{{npmModule}}</md-chip>
+    </md-chips>
+    </md-content>
+
+
+<!--
+    <md-button class="md-raised"
+        ng-disabled="!selectedDevice.online && selectedDevice.available"
+    ng-click=showPrompt(selectedDevice.name)>
+            ng-click=configure(selectedDevice.name)>
+    Configure and Reserve</md-button> <br>
+-->
+
+
+
+
+    <md-button class="md-raised"
+               ng-click=showPrompt(deviceName)>
+        Configure and Reserve</md-button> <br>
+
+    <md-button class="md-raised" ng-disabled="selectedDevice.available"
+               ng-click=checkin(selectedDevice.name)>
+        Check In</md-button> <br>
+</div>
+
+
+
+
+<footer id="configureDevice" ng-hide="configureDevice != true" ng-cloak>
+
+
+    <form>
+        <h1>Configure device named:  {{deviceToConfigure}}</h1><br>
+        Your Name
+        <input type="text" ng-model="deviceConfig.loanedTo" name="nameOfUser"><br>
+        <input type="radio" name="userSelectedConfig" ng-model="deviceConfig.config" value="basic" checked="checked"> Basic<br>
+        <input type="radio" name="userSelectedConfig" ng-model="deviceConfig.config" value="cron"> Install Cron<br>
+        <input type="radio" name="userSelectedConfig" ng-model="deviceConfig.config" value="akka"> Akka Enabled<br>
+        <br>
+        Wifi
+        <input type="text" ng-model="deviceConfig.wifi" name="wifi"><br>
+        Wifi name
+        <input type="text" ng-model="deviceConfig.wifiName" name="wifiName"><br>
+        Wifi account password (sends in clear text)
+        <input type="password" ng-model="deviceConfig.wifiPassword" name="wifiPassword"><br>
+
+
+        npm Install 1:
+        <input type="text" ng-model="deviceConfig.npmInstall1" name="npm1"><br>
+        npm Install 2:
+        <input type="text" ng-model="deviceConfig.npmInstall2" name="npm2"><br>
+        npm Install 3:
+        <input type="text" ng-model="deviceConfig.npmInstall3" name="npm3"><br>
+
+        <input type="submit" ng-click="reserveDevice(deviceConfig)" value="Submit">
+        <br>
+        <br>
+        <br>
+    </form>
+
+
+</footer>
