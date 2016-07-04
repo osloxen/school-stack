@@ -38,3 +38,4 @@ jspm_packages
 
 # Added on the fly
 .DS_Store
+.idea/

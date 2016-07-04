@@ -101,6 +101,7 @@ router.route('/addstaffmember')
 
         newPerson.firstName = req.body.firstName;
         newPerson.lastName = req.body.lastName;
+        newPerson.title = req.body.title;
         newPerson.active = true;
         newPerson.school = req.body.school;
         newPerson.email = req.body.email;

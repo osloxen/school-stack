@@ -14,7 +14,8 @@ angular.module('AddDeviceCtrl', []).controller('AddDeviceController', function($
         "St. Catherine",
         "Blanchet",
         "Roosevelt",
-        "Our Lady of the Lake"
+        "Our Lady of the Lake",
+        "Auburn High School"
     ];
 
     $scope.availableSensorsList = [
